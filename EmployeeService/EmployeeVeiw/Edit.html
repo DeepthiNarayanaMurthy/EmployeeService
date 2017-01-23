@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html ng-app="index-app">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.js"></script>
+    <script src="../app.js"></script>
+    <link href="../EmployeeController/CSS/Employee.css" rel="stylesheet" />
+</head>
+<body>
+    <form>
+        <div ng-controller='EmployeesCtrl'>
+            <table>
+                <tr>
+                    <td><label>Employee Id:</label></td>
+                    <td><input type="text" name="Employee_Id" ng-model="Employee_Id" width="300" /></td>
+                </tr>
+                <tr>
+                    <td><label>First Name:</label></td>
+                    <td><input type="text" name="FName" ng-model="FName" width="300" /></td>
+                </tr>
+                <tr>
+                    <td><label>Last Name:</label></td>
+                    <td><input type="text" name="LName" ng-model="LName" width="300" /></td>
+                </tr>
+                <tr>
+                    <td><label>Phone No:</label></td>
+                    <td><input type="text" name="PhoneNo" ng-model="PhoneNo" width="300" /></td>
+                </tr>
+                <tr>
+                    <td><label>Email Id:</label></td>
+                    <td><input type="text" name="Email_Id" ng-model="Email_Id" width="300" /></td>
+                </tr>
+                <tr>
+                    <td><label>Age:</label></td>
+                    <td><input type="text" name="Age" ng-model="Age" width="500" /></td>
+                </tr>
+                <tr>
+                    <td><label>Status:</label></td>
+                    <td><input type="text" name="Status" ng-model="Status" width="500" /></td>
+                </tr>
+            </table>
+            <button type="submit" ng-click="PutEmployee()">Submit</button>
+        </div>
+
+    </form>
+</body>
+</html>
