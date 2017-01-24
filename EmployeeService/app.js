@@ -1,5 +1,28 @@
 ﻿var app = angular.module("index-app", []);
 
+//app.config(function ($routeProvider) {
+//    $routeProvider
+//		.when('/edit', {
+//		    templateUrl: 'EmployeeView/Edit.html',
+//		    controller: 'EmployeesCtrl'
+//		})
+//		.when('/delete', {
+//		    templateUrl: 'EmployeeView/Delete.html',
+//		    controller: 'EmployeesCtrl'
+//		})
+//        .when('/insert', {
+//            templateUrl: 'EmployeeView/Insert.html',
+//            controller: 'EmployeesCtrl'
+//        })
+//        .when('/home', {
+//            templateUrl: 'EmployeeView/Home.html',
+//            controller: 'EmployeesCtrl'
+//        })
+//		.otherwise({
+//		    redirectTo: '/home'
+//		});
+//});
+
 
 app.controller('EmployeesCtrl', function ($scope, $http) {
     $scope.GetEmployee = function () {
@@ -18,7 +41,6 @@ app.controller('EmployeesCtrl', function ($scope, $http) {
     $scope.GetEmployee();
 
     $scope.PostEmployee = function () {
-        console.log("asf");
         var url = "http://localhost:4404/EmployeeDetails";
         var employee = {};
         if ($scope.Employee_Id) {
@@ -51,6 +73,7 @@ app.controller('EmployeesCtrl', function ($scope, $http) {
             .post(url, employee)
                 .then(function OnSuccess(response) {
                     console.log(response);
+                    alert("New Employee Created.")
                 }, function OnFailure(response) {
                     console.log(response);
                 })
@@ -148,6 +171,5 @@ app.controller('EmployeesCtrl', function ($scope, $http) {
                 })
 
     }
-}
-    
+}   
 );

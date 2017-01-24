@@ -20,12 +20,12 @@ namespace EmployeeService.Tests
             Age = 46,
             Status = "Active"
         };
-        //[Test]
-        //public void AddEmployeeToDataBase_ShouldReturnOne_OnSuccess()
-        //{
-        //    EmployeeRepository emp = new EmployeeRepository();
-        //    Assert.AreEqual(1, emp.InsertEmployee(Employee1));
-        //}
+        [Test]
+        public void AddEmployeeToDataBase_ShouldReturnOne_OnSuccess()
+        {
+            EmployeeRepository emp = new EmployeeRepository();
+            Assert.AreEqual(1, emp.InsertEmployee(Employee1));
+        }
         //[Test]
         //public void RetreiveEmployeeById_ShouldReturnOne_OnSuccess()
         //{

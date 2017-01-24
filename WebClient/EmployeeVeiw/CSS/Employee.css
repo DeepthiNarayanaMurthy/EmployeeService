@@ -1,0 +1,19 @@
+﻿body {
+    
+}
+table{
+    border:solid;
+    
+}
+th{
+    border:solid;
+    width:50px;
+    color:blue;
+    padding:5px,5px,5px,5px;
+    margin:5px,5px,5px,5px;
+}
+td{
+    border:solid;
+    width:50px;
+    padding:5px,5px,5px,5px;
+}

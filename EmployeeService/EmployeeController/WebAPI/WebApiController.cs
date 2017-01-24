@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -34,7 +35,10 @@ namespace EmployeeService.EmployeeController.WebAPI
         {
             HttpResponseMessage response;
             if (employees == null)
-                response = Request.CreateResponse(HttpStatusCode.NotFound,"Not Connecting to DB");
+            {
+                
+                response = Request.CreateResponse(HttpStatusCode.NotFound, "Not Connecting to DB");
+            }
             else
                 response = Request.CreateResponse(HttpStatusCode.OK, employees);
             return response;
