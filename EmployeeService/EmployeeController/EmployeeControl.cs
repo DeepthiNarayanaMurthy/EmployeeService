@@ -37,11 +37,11 @@ namespace EmployeeService
        
 
       
-        public Employee RetreiveEmployeeDetails(Employee employee)
+        public Employee RetreiveEmployeeDetails(string employee_id)
         {
             try
             {
-                return employeeRepository.GetEmployeeById(employee.Employee_Id);
+                return employeeRepository.GetEmployeeById(employee_id);
             }
             catch
             {
@@ -76,8 +76,9 @@ namespace EmployeeService
 
             return status;
         } 
-        public int DeleteEmployee(Employee employee)
+        public int DeleteEmployee(string employeeId)
         {
+            Employee employee = employeeRepository.GetEmployeeById(employeeId);
             if (string.Compare(employee.Status, "Deactive") == 0)
                 return employeeRepository.DeleteById(employee.Employee_Id);
             else

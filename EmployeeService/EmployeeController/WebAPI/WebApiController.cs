@@ -40,11 +40,11 @@ namespace EmployeeService.EmployeeController.WebAPI
             return response;
         }
 
-        [Route("EmployeeDetails/{id?}")]
-        public HttpResponseMessage Get(Employee employee)
+        [Route("EmployeeDetails/{Employee_Id}")]
+        public HttpResponseMessage Get(string Employee_Id)
         {
             HttpResponseMessage response;
-            var employees = control.RetreiveEmployeeDetails(employee);
+            var employees = control.RetreiveEmployeeDetails(Employee_Id);
             response = ResponseMessageMethod(employees);
             return response;
         }
@@ -73,7 +73,7 @@ namespace EmployeeService.EmployeeController.WebAPI
             response = Request.CreateResponse(HttpStatusCode.OK,"Success");
             return response;
         }
-        [Route("EmployeeDetails")]
+        [Route("EmployeeDetails/{Employee_Id}")]
         public HttpResponseMessage Put(Employee employee)
         {
             HttpResponseMessage response;
@@ -86,18 +86,18 @@ namespace EmployeeService.EmployeeController.WebAPI
             response = Request.CreateResponse(HttpStatusCode.OK, "Success");
             return response;
         }
-        [Route("EmployeeDetails")]
-        public HttpResponseMessage Delete([FromBody]Employee employee)
+        [Route("EmployeeDetails/{employeeId}")]
+        public HttpResponseMessage Delete(string employeeId)
         {
             HttpResponseMessage response;
             //if (employee.Count == 1)
             //{
-            Employee emp = employee;
-                var employees = control.DeleteEmployee(emp);
+            
+                var employees = control.DeleteEmployee(employeeId);
                 if (employees == 0)
-                    response = Request.CreateResponse(HttpStatusCode.NotFound, employees);
+                    response = Request.CreateResponse(HttpStatusCode.NotFound, "Employee not found");
                 else
-                    response = Request.CreateResponse(HttpStatusCode.OK, employees);
+                    response = Request.CreateResponse(HttpStatusCode.OK, "Success");
                 return response;
             //}
             //else

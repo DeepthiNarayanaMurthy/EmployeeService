@@ -157,7 +157,7 @@ namespace EmployeeService.Tests
 
             EmployeeControl Read = new EmployeeControl(employeeRepositoryMock);
 
-            Assert.AreEqual(Employee1, Read.RetreiveEmployeeDetails(Employee1), "Employee information is not reterieved properly");
+            Assert.AreEqual(Employee1, Read.RetreiveEmployeeDetails(Employee1.Employee_Id), "Employee information is not reterieved properly");
         }
         [Test]
         public void GivingInValidEmployeeId_OnReadById_ShouldReturnCurrectEmployeeDetalis()
@@ -167,7 +167,7 @@ namespace EmployeeService.Tests
 
             EmployeeControl Read = new EmployeeControl(employeeRepositoryMock);
 
-            Assert.AreEqual(null, Read.RetreiveEmployeeDetails(Employee1), "Employee information is not reterieved properly");
+            Assert.AreEqual(null, Read.RetreiveEmployeeDetails(Employee1.Employee_Id), "Employee information is not reterieved properly");
         }
 
         [Test]
@@ -234,7 +234,7 @@ namespace EmployeeService.Tests
 
             EmployeeControl Delete = new EmployeeControl(employeeRepositoryMock);
 
-            Assert.AreEqual(1, Delete.DeleteEmployee(Employee7), "Deletion not happening properly");
+            Assert.AreEqual(1, Delete.DeleteEmployee(Employee7.Employee_Id), "Deletion not happening properly");
         }
         [Test]
         public void EmployeeWithStatusActive_OnDelete_ShouldReturnZero()
@@ -244,7 +244,7 @@ namespace EmployeeService.Tests
 
             EmployeeControl Delete = new EmployeeControl(employeeRepositoryMock);
 
-            Assert.AreEqual(0, Delete.DeleteEmployee(Employee1), "Deletion not happening properly");
+            Assert.AreEqual(0, Delete.DeleteEmployee(Employee1.Employee_Id), "Deletion not happening properly");
         }
 
         //Delete Multiple

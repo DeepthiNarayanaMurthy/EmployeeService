@@ -152,9 +152,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.js" />
-    <Content Include="EmployeeController\CSS\Employee.css" />
+    <Content Include="EmployeeVeiw\CSS\Employee.css" />
+    <Content Include="EmployeeVeiw\Delete.html" />
     <Content Include="EmployeeVeiw\Edit.html" />
-    <Content Include="EmployeeVeiw\Employee.html" />
+    <Content Include="EmployeeVeiw\Get.html" />
     <Content Include="EmployeeVeiw\Insert.html" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />

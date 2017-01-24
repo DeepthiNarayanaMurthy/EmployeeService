@@ -55,24 +55,33 @@ app.controller('EmployeesCtrl', function ($scope, $http) {
                     console.log(response);
                 })
     }
-    $scope.PutEmployee = function (id) {
-        var url = "http://localhost:4404/EmployeeDetails" + id;
-        $scope.emplooyee = {};
+
+    $scope.Put1Employee = function () {
+        var url = "http://localhost:4404/EmployeeDetails/" + $scope.Employee_Id1;
+        //var url = "http://localhost:4404/EmployeeDetails/acds";
+        var employee = {};
         $http
             .get(url)
                 .then(function OnSuccess(response) {
-                    $scope.emplooyee = response.data;
+                    
+                    employee = response.data;
+                    $scope.Employee_Id = employee.Employee_Id;
+                    $scope.FName = employee.FirstName;
+                    $scope.LName = employee.LastName;
+                    $scope.PhoneNo = employee.PhoneNo;
+                    $scope.Email_Id = employee.Email_Id;
+                    $scope.Age = employee.Age;
+                    $scope.Status = employee.Status;
                     console.log(response.data);
                 }, function OnFailure(response) {
                     console.log(response);
                 })
-        $scope.Employee_Id=employee.Employee_Id ;
-        $scope.FName=employee.FirstName ;
-        $scope.LName=employee.LastName  ;
-        $scope.PhoneNo=employee.PhoneNo ;
-        $scope.Email_Id=employee.Email_Id ;
-        $scope.Age=employee.Age  ;
-        $scope.Status = employee.Status;
+        
+    }
+    $scope.PutEmployee = function () {
+        var url = "http://localhost:4404/EmployeeDetails/" + $scope.Employee_Id;
+        var employee = {};
+       
         if ($scope.Employee_Id) {
             employee.Employee_Id = $scope.Employee_Id;
             if ($scope.FName) {
@@ -107,10 +116,31 @@ app.controller('EmployeesCtrl', function ($scope, $http) {
                     console.log(response);
                 })
     }
-    $scope.DeleteEmployee = function (emp) {
-        var url = "http://localhost:4404/EmployeeDetails";
+    $scope.Delete1Employee = function () {
+        var url = "http://localhost:4404/EmployeeDetails/" + $scope.Employee_Id1;
+        //var url = "http://localhost:4404/EmployeeDetails/acds";
+        var employee = {};
         $http
-            .delete(url,emp)
+            .get(url)
+                .then(function OnSuccess(response) {
+                    employee = response.data;
+                    $scope.Employee_Id = employee.Employee_Id;
+                    $scope.FName = employee.FirstName;
+                    $scope.LName = employee.LastName;
+                    $scope.PhoneNo = employee.PhoneNo;
+                    $scope.Email_Id = employee.Email_Id;
+                    $scope.Age = employee.Age;
+                    $scope.Status = employee.Status;
+                    console.log(response.data);
+                }, function OnFailure(response) {
+                    console.log(response);
+                })
+
+    }
+    $scope.DeleteEmployee = function () {
+        var url = "http://localhost:4404/EmployeeDetails/"+ $scope.Employee_Id;
+        $http
+            .delete(url, $scope.Employee_Id)
                 .then(function OnSuccess(response) {
                     console.log(response.data);
                 }, function OnFailure(response) {
